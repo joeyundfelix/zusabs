@@ -1,0 +1,8 @@
+<svg width="80" height="80" 
+     viewPort="0 0 80 80" version="1.1"
+     xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="30" height="60" fill="#99cc99"/>
+  <rect x="40" y="10" width="30" height="60" fill="#f2777a"/>
+  <text x="16" y="52" font-family="Helvetica" color="#333333" font-size="30">Z</text>
+  <text x="45" y="52" font-family="Helvetica" color="#333333" font-size="30">A</text>
+</svg>

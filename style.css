@@ -23,6 +23,14 @@ header > * {
   float: left;
 }
 
+header .logo {
+  background-image: url(logo.svg);
+}
+
+header .logo h1 {
+  opacity: 0;
+}
+
 header > *:not(:first-child) {
   float: right;
 }
