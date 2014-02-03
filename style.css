@@ -177,6 +177,21 @@ main div:last-child h2 {
   margin-top: 7.17em;
 }
 
+.or {
+  font-weight: normal;
+  display: inline;
+  padding-bottom: 0!important;
+}
+
+.or a {
+  color: #333333;
+  text-decoration: none;
+}
+
+.or a:hover {
+  text-decoration: underline;
+}
+
 .register form {
   font-size: 1.3em;
   width: 22em;
