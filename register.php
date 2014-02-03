@@ -46,7 +46,7 @@
 </head>
 <body class="register">
 <header>
-  <div class="logo"><h1>Logo</h1></div>
+  <div class="logo"><h1>Zusage / Absage</h1></div>
   <div class="datum">Datum</div>
   <div class="profile">Name</div>
 </header>

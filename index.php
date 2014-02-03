@@ -38,7 +38,7 @@
 </head>
 <body class="home">
 <header>
-  <div class="logo"><h1>Logo</h1></div>
+  <div class="logo"><h1>Zusage / Absage</h1></div>
   <div class="profile">
     <div class="name">Hallo, <?php echo $_SESSION["first_name"]; ?></div>
     <div class="logout"><a href="logout.php">Abmelden</a></div>

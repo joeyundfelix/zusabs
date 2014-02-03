@@ -25,6 +25,8 @@ header > * {
 
 header .logo {
   background-image: url(logo.svg);
+  width: 5em;
+  overflow: hidden;
 }
 
 header .logo h1 {
