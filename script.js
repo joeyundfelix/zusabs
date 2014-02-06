@@ -1,8 +1,8 @@
-var choose = document.querySelectorAll('input[type="radio"]')
+var choose = document.querySelectorAll('form.choose label')
   , form = document.querySelector('form.choose');
 
 function submit () {
-  form.submit();
+  setTimeout(function() {form.submit()}, 50);
 }
 
 for (var i = choose.length - 1; i >= 0; i--) {

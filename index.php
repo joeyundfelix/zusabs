@@ -52,8 +52,10 @@
   <h2>Triff deine Auswahl</h2>
   <div>
     <form action="choose.php" method="POST" class="choose">
-      <input type="radio" name="auswahl" value="1">
-      <input type="radio" name="auswahl" value="0">
+      <label class="zusagen" for="zusagen">Zusagen</label>
+      <label class="absagen" for="absagen">Absagen</label>
+      <input type="radio" id="zusagen" name="auswahl" value="1">
+      <input type="radio" id="absagen" name="auswahl" value="0">
     </form>
   </div>
   <div>

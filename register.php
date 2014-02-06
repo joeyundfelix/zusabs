@@ -58,7 +58,6 @@
       <label><span>Nachname:</span><input type="text" name="user_last_name" required placeholder="Mustermann" ></label>
       <label><span>E-Mail-Adresse:</span><input type="email" name="user_email" required placeholder="me@example.org" ></label>
       <label><span>Passwort:</span><input type="password" required name="user_password" ></label>
-      <label><span>Passwort bestätigen:</span><input required type="password" name="name" ></label>
       <input type="submit" value="Abschicken">
     </form>
   </div>
