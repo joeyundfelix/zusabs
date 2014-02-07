@@ -151,7 +151,7 @@ main {
   visibility: hidden;
 }
 
-ul {
+.list ul {
   width: 50%;
   float: left;
   margin: 0;
@@ -159,25 +159,81 @@ ul {
   font-size: 1.3em;
 }
 
-ul li {
+.list ul li {
   list-style: none;
   padding: 0;
   margin: 0.1em 0 0.1em 1em;
 }
 
-ul li:first-child {
+.list ul li:first-child {
   list-style: none;
   padding: 0;
   margin: 0.1em 0 1em 1em;
   font-weight: bold;
 }
 
-main div:last-child {
+main > div {
+  width: 100%;
+  float: left;
+}
+
+main > div:last-child {
   padding-bottom: 1.5em;
 }
 
-main div:last-child h2 {
-  margin-top: 7.17em;
+sup {
+  font-weight: normal;
+  font-size: 0.625em
+}
+
+textarea {
+  margin: 0;
+  width: 100%;
+  height: 4em;
+  font-size: 1em;
+  padding: 0;
+  resize: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.entry {
+  float: left;
+  width: 100%;
+}
+
+.entry input[type="submit"] {
+  background: #6699cc;
+  -webkit-appearance: none;
+  height: 2em;
+  width: 10em;
+  font-size: 1em;
+  float: right;
+  border: none;
+}
+
+.guestbook ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guestbook ul li .by {
+  font-size: 1.2em;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+  font-style: italic;
+}
+
+.guestbook ul li .text {
+  font-size: 1.05em;
+  padding-bottom: 0.3em;
+  border-bottom: 0.1em solid #333333;
+}
+
+.guestbook ul li:last-child .text {
+  border-bottom: none;
 }
 
 .or {
