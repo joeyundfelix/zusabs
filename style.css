@@ -338,14 +338,6 @@ textarea {
     width: 100%;
   }
 
-  .home label.absagen {
-    margin-bottom: 1em;
-  }
-  
-  main div:last-child h2 {
-    margin-top: 9.85em;
-  }
-
   .register form label input {
     float: left;
   }
