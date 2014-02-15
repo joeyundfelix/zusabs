@@ -100,6 +100,6 @@
     </ul>
   </div>
 </main>
-</body>
 <script type="text/javascript" src="script.js"></script>
+</body>
 </html>
