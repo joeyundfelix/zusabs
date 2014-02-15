@@ -79,7 +79,7 @@
   <div class="profile">Name</div>
 </header>
 <main>
-  <h2>Einloggen <div class="or">oder <a href="register.php">registrieren</a></div></h2>
+  <h2>Einloggen <span class="or">oder <a href="register.php">registrieren</a></span></h2>
   <div>
     <form action="login.php" method="POST">
       <label><span>E-Mail-Adresse:</span><input type="email" name="user_email" required placeholder="me@example.org" ></label>

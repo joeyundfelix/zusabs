@@ -51,7 +51,7 @@
   <div class="profile">Name</div>
 </header>
 <main>
-  <h2>Registrieren <div class="or">oder <a href="login.php">einloggen</a></div></h2>
+  <h2>Registrieren <span class="or">oder <a href="login.php">einloggen</a></span></h2>
   <div>
     <form action="register.php" method="POST">
       <label><span>Vorname:</span><input type="text" name="user_first_name" required placeholder="Max" ></label>
