@@ -29,7 +29,7 @@
 
     // zeit: jetzige zeit zu eintrag
 
-    if (isset($user_first_name, $user_last_name, $text, $user_id, $time)) {
+    if (isset($user_first_name, $user_last_name, $text, $user_id, $time) && ($text != "")) {
 
       $post_sql = "INSERT IGNORE INTO `guestbook` (`id`, `user_id`, `first_name`, `last_name`, `text`, `time`) VALUES (NULL,'$user_id', '$user_first_name', '$user_last_name', '$text', '$time')";
 
