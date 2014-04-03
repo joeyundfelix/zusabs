@@ -24,7 +24,7 @@ Wenn man es sich später noch anders überlegt oder doch keine Zeit hat, kann ma
 
 **Probier es selbst aus**
 
-Wenn du magst, kannst du unsere [Web-Applikation](http://zusabs.demont.is) selbst ausprobieren - du musst dann aber auch zum Treffen kommen :)
+Wenn du magst, kannst du unsere [Web-Applikation](http://zusabs.joeyundfelix.at/) selbst ausprobieren - du musst dann aber auch zum Treffen kommen :)
 
 
 ###### *Dieser Text ist nur eine Kopie von [diesem Tumblr post](http://joeyundfelix.tumblr.com/post/75802694418/zusage-absage)*
