@@ -86,6 +86,7 @@
     <h2>Gästebuch <sup>BETA</sup></h2>
     <form action="addentry.php" method="POST" class="entry">
       <textarea name="text"></textarea>
+      <div class="help"><b>Styling: </b>{f} {/f}: Fett, {k} {/k}: Kursiv, {u} {/u}: Unterstrichen </div>
       <input type="submit" value="Eintrag absenden">
     </form>
     <ul>

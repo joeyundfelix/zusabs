@@ -213,6 +213,10 @@ textarea {
   border: none;
 }
 
+.help {
+  float: left;
+}
+
 .guestbook ul {
   list-style: none;
   padding: 0;
