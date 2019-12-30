@@ -69,12 +69,12 @@
 <head>
   <meta charset="UTF-8" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-  <title>Zusage / Absage</title>
+  <title>3HD</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="register">
 <header>
-  <div class="logo"><h1>Zusage / Absage</h1></div>
+  <div class=""><h1>3HD</h1></div>
   <div class="datum">Datum</div>
   <div class="profile">Name</div>
 </header>

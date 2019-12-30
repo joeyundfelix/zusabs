@@ -36,6 +36,8 @@ header {
 
 header h1 {
   margin: 0;
+  margin-left: 1em;
+  line-height: 2.5em;
 }
 
 header > * {
@@ -126,12 +128,51 @@ main {
   user-select: none;
 }
 
+/*
+
 .home label.zusagen {
   background: #99cc99;
 }
 
 .home label.absagen {
   background: #f2777a;
+}
+
+*/
+
+.home label.picknick {
+  background: #7FDBFF;
+}
+
+.home label.prater { 
+  background: #39CCCC;
+}
+
+.home label.kletterpark { 
+  background: #3D9970;
+}
+
+.home label.linz { 
+  background: #2ECC40;
+}
+
+.home label.folter { 
+  background: #01FF70;
+}
+
+.home label.schoenbrunn { 
+  background: #FFDC00;
+}
+
+.home label.tiergarten { 
+  background: #FF851B;
+  width: 100%;
+}
+
+.home label:hover {
+  border: 0.5em solid rgba(0,0,0,0.2);
+  line-height: 3em;
+  box-shadow: inset 0 0 0 2em rgba(0,0,0,0.1);
 }
 
 .home label.zusagen:hover {
@@ -168,7 +209,7 @@ main {
 .list ul li:first-child {
   list-style: none;
   padding: 0;
-  margin: 0.1em 0 1em 1em;
+  margin: 1em 0 1em 1em;
   font-weight: bold;
 }
 
@@ -339,6 +380,10 @@ textarea {
   }
 
   .home label {
+    width: 100%;
+  }
+
+  .list ul {
     width: 100%;
   }
 
