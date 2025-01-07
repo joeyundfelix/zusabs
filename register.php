@@ -1,12 +1,14 @@
 <?php
 
-  include("config.php");
+  include_once("config.php");
 
   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
 
-    if ($_SESSION['loggedin']) {
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
       header('Location: '.constant("SITE_ROOT").'index.php');
       exit;
     }
@@ -23,10 +25,18 @@
 
     if (isset($user_first_name, $user_last_name, $user_email, $user_password)) {
 
-      $insert_user_sql = "INSERT IGNORE INTO `user` (`user_id`, `user_first_name`, `user_last_name`, `user_email`, `user_password`) VALUES (NULL, '$user_first_name', '$user_last_name', '$user_email', '$user_password')";
-
-      mysql_query($insert_user_sql) or die("S**t, das war wohl nix <br>".mysql_error()); 
-
+      try {
+        $insert_user_sql = "INSERT OR IGNORE INTO user (user_id, user_first_name, user_last_name, user_email, user_password) VALUES (NULL, :user_first_name, :user_last_name, :user_email, :user_password)";
+        $stmt = $pdo->prepare($insert_user_sql);
+        $stmt->execute([
+          ':user_first_name' => $user_first_name,
+          ':user_last_name'  => $user_last_name,
+          ':user_email'      => $user_email,
+          ':user_password'   => $user_password
+        ]);        
+      } catch (PDOException $e) {
+        die("S**t, das war wohl nix <br>" . $e->getMessage());
+      }
     }
     
     header('Location: '.constant("SITE_ROOT").'login.php');

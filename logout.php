@@ -1,8 +1,10 @@
 <?php
-  session_start();
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
   session_destroy();
 
-  include("config.php");
+  include_once("config.php");
 
   header('Location: '.constant("SITE_ROOT").'login.php');
   exit;

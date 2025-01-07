@@ -1,13 +1,15 @@
-<?php include('auth.php'); ?>
+<?php include_once('auth.php'); ?>
 <?php
 
-  include ('config.php');
+  include_once ('config.php');
 
   if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
 
-    if ($_SESSION['loggedin']) {
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
       header('Location: '.constant("SITE_ROOT").'index.php');
       exit;
     }
@@ -16,16 +18,25 @@
 
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    session_start();
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+    }
 
-    setlocale(LC_TIME, "de_DE");
-    date_default_timezone_set("Europe/Vienna");
+    $date = new DateTime();
+    $formatter = new IntlDateFormatter(
+      'de_AT',
+      IntlDateFormatter::FULL,
+      IntlDateFormatter::NONE,
+      "Europe/Vienna",
+      IntlDateFormatter::GREGORIAN,
+      "d. MMMM yyyy 'um' HH:mm"
+    );
 
     $user_id = $_SESSION["id"];
     $user_first_name = $_SESSION["first_name"];
     $user_last_name = $_SESSION["last_name"];
     $text = $_POST["text"];
-    $time = strftime("%e. %B %Y um %R");
+    $time = $formatter->format($date);
 
     // zeit: jetzige zeit zu eintrag
 
@@ -55,10 +66,20 @@
       $text = str_replace('{/r}', '</span>', $text);
       $text = str_replace('{/b}', '</span>', $text);
       $text = str_replace('{/g}', '</span>', $text);
-        
-      $post_sql = "INSERT IGNORE INTO `guestbook` (`id`, `user_id`, `first_name`, `last_name`, `text`, `time`) VALUES (NULL,'$user_id', '$user_first_name', '$user_last_name', '$text', '$time')";
 
-      mysql_query($post_sql) or die("S**t, das war wohl nix <br>".mysql_error()); 
+      try {
+        $post_sql = "INSERT OR IGNORE INTO guestbook (id, user_id, first_name, last_name, text, time) VALUES (NULL, :user_id, :first_name, :last_name, :text, :time)";
+        $stmt = $pdo->prepare($post_sql);
+        $stmt->execute([
+          ':user_id'    => $user_id,
+          ':first_name' => $user_first_name,
+          ':last_name'  => $user_last_name,
+          ':text'       => $text,
+          ':time'       => $time
+        ]);        
+      } catch (PDOException $e) {
+        die("S**t, das war wohl nix <br>" . $e->getMessage());
+      }
 
     }
 

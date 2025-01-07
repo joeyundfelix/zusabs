@@ -1,35 +1,57 @@
-<?php include('auth.php'); ?>
+<?php include_once('auth.php'); ?>
 <?php
 
-  session_start();
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-  include("config.php");
+  include_once("config.php");
 
-  $zusabs_sql = "SELECT * FROM `zusabs` ORDER BY id DESC";
+  try {
+    $zusabs_sql = "SELECT * FROM `zusabs` ORDER BY id DESC";
 
-  $req_zusabs = mysql_query($zusabs_sql) or die("Oh nein !<br>".$zusabs_sql."<br>".mysql_error());
+    $stmt_zusabs = $pdo->query($zusabs_sql);
 
-  $zusagen = array();
-  $absagen = array();
+    $zusagen = array();
+    $absagen = array();
 
-  while( $data_zusabs = mysql_fetch_array($req_zusabs) ) {
+    while( $data_zusabs = $stmt_zusabs->fetch(PDO::FETCH_ASSOC) ) {
 
-    if ($data_zusabs["auswahl"] == 1) {
-      array_push($zusagen, $data_zusabs["first_name"].' '.$data_zusabs["last_name"]); 
-    }
+      if ($data_zusabs["auswahl"] == 1) {
+        array_push($zusagen, $data_zusabs["first_name"].' '.$data_zusabs["last_name"]); 
+      }
 
-    if ($data_zusabs["auswahl"] == 0) {
-      array_push($absagen, $data_zusabs["first_name"].' '.$data_zusabs["last_name"]);
-    }
+      if ($data_zusabs["auswahl"] == 0) {
+        array_push($absagen, $data_zusabs["first_name"].' '.$data_zusabs["last_name"]);
+      }
 
-  };
+    };
 
-  $guestbook_sql = "SELECT * FROM `guestbook` ORDER BY id DESC";
+    $guestbook_sql = "SELECT * FROM `guestbook` ORDER BY id DESC";
 
-  $req_guestbook = mysql_query($guestbook_sql) or die("Oh nein !<br>".$guestbook_sql."<br>".mysql_error());
+    $stmt_guestbook = $pdo->query($guestbook_sql);
 
-  setlocale(LC_TIME, "de_DE");
-  date_default_timezone_set("Europe/Vienna")
+  } catch (PDOException $e) {
+    die("Oh nein !<br>".$e->getMessage());
+  }
+
+  $date = new DateTime();
+  $formatterDay = new IntlDateFormatter(
+    'de_AT',
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::NONE,
+    $date->getTimezone(),
+    IntlDateFormatter::GREGORIAN,
+    'EEEE' // Day of the week
+  );
+  $formatterDate = new IntlDateFormatter(
+    'de_AT',
+    IntlDateFormatter::FULL,
+    IntlDateFormatter::NONE,
+    $date->getTimezone(),
+    IntlDateFormatter::GREGORIAN,
+    'd. MMMM yyyy' // Day, Month, Year
+  );
 
 ?>
 
@@ -49,8 +71,8 @@
     <div class="logout"><a href="logout.php">Abmelden</a></div>
   </div>
   <div class="date">
-    <div><?php echo strftime('%A'); ?></div>
-    <div><?php echo strftime('%e. %B %Y'); ?></div>
+    <div><?php echo $formatterDay->format($date); ?></div>
+    <div><?php echo $formatterDate->format($date); ?></div>
   </div>
 </header>
 <main>
@@ -91,7 +113,7 @@
     </form>
     <ul>
       <?php
-        while( $data_guestbook = mysql_fetch_array($req_guestbook) ) {
+        while( $data_guestbook = $stmt_guestbook->fetch(PDO::FETCH_ASSOC) ) {
           echo "<li>";
           echo "<div class='by'>".$data_guestbook["first_name"]." ".$data_guestbook["last_name"]." sagte am ".$data_guestbook["time"].":</div>";
           echo "<div class='text'>".$data_guestbook["text"]."</div>";
