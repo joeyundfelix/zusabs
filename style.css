@@ -36,6 +36,8 @@ header {
 
 header h1 {
   margin: 0;
+  margin-left: 1em;
+  line-height: 2.5em;
 }
 
 header > * {
@@ -106,9 +108,34 @@ main {
   margin: 0 auto;
 }
 
+.info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info table td, .info table th {
+    font-size: 1em;
+    border: 1px solid #5986B2;
+    padding: 3px 7px 2px 7px;
+}
+
+.info table th {
+    font-size: 1.1em;
+    text-align: left;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    background-color: #5986B2;
+    color: #ffffff;
+}
+
+.info table tr:nth-child(2n) td {
+    color: #000000;
+    background-color: #C2D9EF;
+}
+
 .home label {
   height: 4em;
-  width: 50%;
+  width: 33.33%;
   float: left;
   margin: 0;
   text-align: center;
@@ -126,25 +153,29 @@ main {
   user-select: none;
 }
 
+/*
+
 .home label.zusagen {
-  background: #99cc99;
+  background: #39CCCC;
 }
 
 .home label.absagen {
-  background: #f2777a;
+  background: #FF9151;
 }
 
 .home label.zusagen:hover {
-  background: #a2c3a2;
+  background: #39CCCC;
   border: 0.5em solid rgba(0,0,0,0.2);
   line-height: 3em;
 }
 
 .home label.absagen:hover {
-  background: #eb7f81;
+  background: #FF9151;
   border: 0.5em solid rgba(0,0,0,0.2);
   line-height: 3em;
 }
+
+*/
 
 .home input[type="radio"] {
   display: none;
@@ -152,7 +183,7 @@ main {
 }
 
 .list ul {
-  width: 50%;
+  width: 33.33%;
   float: left;
   margin: 0;
   padding: 0;
@@ -170,6 +201,10 @@ main {
   padding: 0;
   margin: 0.1em 0 1em 1em;
   font-weight: bold;
+}
+
+.list ul li span {
+  text-transform: capitalize;
 }
 
 main > div {
@@ -220,7 +255,7 @@ textarea {
 .guestbook ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+OB  margin: 0;
 }
 
 .guestbook ul li .by {
@@ -289,7 +324,7 @@ textarea {
 @media screen and (max-width:30em) {
 
   header {
-      height: 9em;
+      height: 7em;
   }
 
   header .logo {
@@ -328,10 +363,14 @@ textarea {
     width: 100%;
     float: none;
   }
-  
+
+  /*  
+
   ul:last-child {
     margin-top: 1em;
   }
+
+  */
   
   .register input[type="radio"] {
     width: 100%;
@@ -357,6 +396,11 @@ textarea {
 
   .register form {
     width: 100%;
+  }
+
+  .list ul {
+    width: 100%;
+    float: none;
   }
   
 }

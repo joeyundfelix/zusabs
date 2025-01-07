@@ -69,12 +69,12 @@
 <head>
   <meta charset="UTF-8" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
-  <title>Zusage / Absage</title>
+  <title>Maturareise 2015</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="register">
 <header>
-  <div class="logo"><h1>Zusage / Absage</h1></div>
+  <div class=""><h1>Maturareise</h1></div>
   <div class="datum">Datum</div>
   <div class="profile">Name</div>
 </header>
@@ -82,11 +82,14 @@
   <h2>Einloggen <span class="or">oder <a href="register.php">registrieren</a></span></h2>
   <div>
     <form action="login.php" method="POST">
-      <label><span>E-Mail-Adresse:</span><input type="email" name="user_email" required placeholder="me@example.org" ></label>
-      <label><span>Passwort:</span><input type="password" required name="user_password" ></label>
+      <label><span>E-Mail-Adresse:</span><input type="email" name="user_email" required placeholder="me@example.org" class="email"></label>
+      <label><span>Passwort:</span><input type="password" required class="passwordinput"></label>
+      <input type="hidden" class="realpassword" required name="user_password" >
       <input type="submit" value="Anmelden">
     </form>
   </div>
 </main>
 </body>
+<script src="/md5.js"></script>
+<script src="/anmelden.js"></script>
 </html>
