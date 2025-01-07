@@ -26,4 +26,4 @@ CREATE TABLE IF NOT EXISTS "zusabs" (
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
 
-INSERT INTO user VALUES(1,'Demo','Mustermensch','demo@example.org','demopassword');
+INSERT INTO user VALUES(NULL,'Demo','Mustermensch','demo@example.org','$2a$12$OW0RqBOBqDQ5Ay8EG3eHr.fyv9XlBpZBX28XxoEP7ABRqbz3YqZEa'); -- demopassword

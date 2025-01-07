@@ -40,7 +40,7 @@
         $user_last_name = $result['user_last_name'];
         
         // Benutzername und Passwort werden überprüft
-        if ($user_password == $user_password_db) {
+        if (password_verify($user_password, $user_password_db)) {
 
           $_SESSION['loggedin'] = true;
 

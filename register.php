@@ -25,6 +25,8 @@
 
     if (isset($user_first_name, $user_last_name, $user_email, $user_password)) {
 
+      $hashed_password = password_hash($user_password, PASSWORD_DEFAULT);
+
       try {
         $insert_user_sql = "INSERT OR IGNORE INTO user (user_id, user_first_name, user_last_name, user_email, user_password) VALUES (NULL, :user_first_name, :user_last_name, :user_email, :user_password)";
         $stmt = $pdo->prepare($insert_user_sql);
@@ -32,7 +34,7 @@
           ':user_first_name' => $user_first_name,
           ':user_last_name'  => $user_last_name,
           ':user_email'      => $user_email,
-          ':user_password'   => $user_password
+          ':user_password'   => $hashed_password
         ]);        
       } catch (PDOException $e) {
         die("S**t, das war wohl nix <br>" . $e->getMessage());
